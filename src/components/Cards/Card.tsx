@@ -1,6 +1,7 @@
 import { useContext } from "react";
-import { MainContext } from "context/main";
-import { removeNumber } from "context/main/actions";
+import { CardsContext } from "context/cards";
+import { removeCard } from "context/cards/actions";
+import { Card as CardType } from "types/cards";
 import Button from "components/Button";
 
 const classes = {
@@ -12,28 +13,27 @@ const classes = {
 };
 
 interface CardProps {
-  value: number;
-  index: number;
+  card: CardType;
 }
 
-const Card = ({ value, index }: CardProps) => {
-  const { dispatch } = useContext(MainContext);
+const Card = ({ card }: CardProps) => {
+  const { dispatch } = useContext(CardsContext);
 
-  const onRemoveNumber = () => {
-    dispatch(removeNumber(index));
+  const onRemoveCard = () => {
+    dispatch(removeCard(card));
   };
 
   return (
     <div className={classes.root}>
       <Button
-        onClick={onRemoveNumber}
+        onClick={onRemoveCard}
         className={classes.button}
         variant="dangerous"
       >
         X
       </Button>
       <div className={classes.valueWrapper}>
-        <p className={classes.value}>{value}</p>
+        <p className={classes.value}>{card.number}</p>
       </div>
     </div>
   );

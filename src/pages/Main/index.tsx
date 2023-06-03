@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
-import { MainContext } from "context/main";
-import { addStoredNumbers } from "context/main/actions";
+import { CardsContext } from "context/cards";
+import { initiateCards } from "context/cards/actions";
 import Cards from "components/Cards";
 import Footer from "components/Footer";
 import Header from "components/Header";
@@ -8,15 +8,15 @@ import Sidebar from "components/Sidebar";
 
 const classes = {
   main: "grid grid-cols-12",
-  section: "relative overflow-hidden col-span-9",
-  sidebar: "col-span-3",
+  section: "relative overflow-hidden md:col-span-9 col-span-12",
+  sidebar: "col-span-3 hidden md:block",
 };
 
 const Main = () => {
-  const { dispatch } = useContext(MainContext);
+  const { dispatch } = useContext(CardsContext);
 
   useEffect(() => {
-    dispatch(addStoredNumbers());
+    dispatch(initiateCards());
   }, []);
 
   return (

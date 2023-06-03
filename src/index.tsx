@@ -1,6 +1,5 @@
 import { StrictMode } from "react";
-import { MainContextProvider } from "context/main";
-import reportWebVitals from "./reportWebVitals";
+import { CardsContextProvider } from "context/cards";
 import ReactDOM from "react-dom/client";
 import Main from "pages/Main";
 import "./index.css";
@@ -10,10 +9,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <StrictMode>
-    <MainContextProvider>
+    <CardsContextProvider>
       <Main />
-    </MainContextProvider>
+    </CardsContextProvider>
   </StrictMode>
 );
-
-reportWebVitals();

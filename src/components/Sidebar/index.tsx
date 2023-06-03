@@ -1,5 +1,5 @@
 const classes = {
-  root: "h-screen w-full bg-white border-l border-l-gray-200 overflow-hidden overflow-y-auto",
+  root: "md:h-screen w-full bg-white border-l border-l-gray-200 overflow-hidden overflow-y-auto",
   title: "flex justify-center py-5 mb-4 text-xl text-green-800 font-bol",
   contentWrapper: "p-4 space-y-3",
 };

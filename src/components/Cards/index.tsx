@@ -1,5 +1,5 @@
-import { Fragment, useContext } from "react";
-import { MainContext } from "context/main";
+import { useContext } from "react";
+import { CardsContext } from "context/cards";
 import NoData from "./NoData";
 import Card from "./Card";
 
@@ -8,21 +8,21 @@ const classes = {
 };
 
 const Cards = () => {
-  const { numbers } = useContext(MainContext);
+  const { cards } = useContext(CardsContext);
+
+  if (!cards.length) {
+    return (
+      <section className={classes.root}>
+        <NoData />
+      </section>
+    );
+  }
 
   return (
     <section className={classes.root}>
-      {numbers.length ? (
-        <Fragment>
-          {numbers.map((number: number, index: number) => {
-            return (
-              <Card key={`${number}-${index}`} value={number} index={index} />
-            );
-          })}
-        </Fragment>
-      ) : (
-        <NoData />
-      )}
+      {cards.map((card) => (
+        <Card key={card.id} card={card} />
+      ))}
     </section>
   );
 };

@@ -1,6 +1,7 @@
 import { useContext } from "react";
-import { MainContext } from "context/main";
-import { addNumber, sortNumbers, removeAllNumbers } from "context/main/actions";
+import { v4 as uuidv4 } from "uuid";
+import { CardsContext } from "context/cards";
+import { addCard, removeAllCards, sortCards } from "context/cards/actions";
 import Button from "components/Button";
 
 const classes = {
@@ -8,31 +9,33 @@ const classes = {
 };
 
 const Header = () => {
-  const { numbers, dispatch } = useContext(MainContext);
+  const { cards, dispatch } = useContext(CardsContext);
 
-  const onAddRandomNumber = () => {
+  const onAddCard = () => {
+    const id = uuidv4();
     const randomNumber = Math.floor(Math.random() * 1000);
-    dispatch(addNumber(randomNumber));
+
+    dispatch(addCard({ id, number: randomNumber }));
   };
 
-  const onSortNumbers = () => {
-    dispatch(sortNumbers());
+  const onSortCards = () => {
+    dispatch(sortCards());
   };
 
-  const onRemoveAllNumbers = () => {
-    dispatch(removeAllNumbers());
+  const onRemoveAllCards = () => {
+    dispatch(removeAllCards());
   };
 
   return (
     <header className={classes.root}>
       <div className="space-x-4">
-        <Button variant="promary" onClick={onAddRandomNumber}>
+        <Button variant="primary" onClick={onAddCard}>
           Add card
         </Button>
         <Button
-          variant="secundary"
-          disabled={numbers.length <= 1}
-          onClick={onSortNumbers}
+          variant="secondary"
+          disabled={cards.length <= 1}
+          onClick={onSortCards}
         >
           Sort cards
         </Button>
@@ -40,8 +43,8 @@ const Header = () => {
 
       <Button
         variant="dangerous"
-        disabled={!numbers.length}
-        onClick={onRemoveAllNumbers}
+        disabled={!cards.length}
+        onClick={onRemoveAllCards}
       >
         Remove all cards
       </Button>
