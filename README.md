@@ -1,8 +1,14 @@
 # Card Application
 
+## Demo URL
+
+#### [Card Application](https://card-application-lovat.vercel.app/)
+
 ## Technology stack
 
 #### [React.js](https://react.dev/)
+
+#### [Context](https://react.dev/learn/passing-data-deeply-with-context)
 
 #### [TypeScript](https://www.typescriptlang.org/)
 

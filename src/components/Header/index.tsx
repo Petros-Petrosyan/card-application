@@ -46,7 +46,7 @@ const Header = () => {
         disabled={!cards.length}
         onClick={onRemoveAllCards}
       >
-        Remove all cards
+        Remove all
       </Button>
     </header>
   );
