@@ -1,5 +1,5 @@
 const classes = {
-  root: "flex items-center justify-center flex-col h-full space-y-3",
+  root: "flex items-center justify-center flex-col h-full space-y-3 text-center",
   title: "text-lg font-medium",
 };
 

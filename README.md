@@ -1,8 +1,6 @@
 # Card Application
 
-## Demo URL
-
-#### [Card Application](https://card-application-lovat.vercel.app/)
+### [Demo](https://card-application-lovat.vercel.app/)
 
 ## Technology stack
 
